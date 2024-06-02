@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shreyansh Bhandari - Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: #1b1b1b;
+            color: #e0e0e0;
+        }
+        .skills-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.skill-box {
+    background-color: #282828;
+    color: #e0e0e0;
+    padding: 20px;
+    width: calc(33.33% - 20px); /* Adjust width as needed */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.skill-box:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+.skill-box h4 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.skill-box ul {
+    padding-left: 20px;
+}
+
+.skill-box ul li {
+    margin-bottom: 8px;
+}
+
+.projects .project-box {
+    background-color: #282828;
+    color: #e0e0e0;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.projects .project-box:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+.projects .project-box h3 {
+    margin-top: 0;
+}
+
+.projects .project-box a {
+    color: #6e45e2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.projects .project-box a:hover {
+    text-decoration: underline;
+}
+
+.projects .more-projects {
+    margin-top: 30px;
+}
+
+.projects .more-projects h3 {
+    margin-top: 0;
+}
+
+.projects .more-projects a {
+    color: #6e45e2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.projects .more-projects a:hover {
+    text-decoration: underline;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    background-color: #282828;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav a {
+    color: #e0e0e0;
+    padding: 0.5rem 1rem; /* Decrease the padding */
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.nav a:hover {
+    color: #6e45e2;
+}
+
+
+        .header {
+            text-align: center;
+            padding: 2rem 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-top: 1rem;
+            animation: fadeIn 2s;
+            display: none;
+        }
+
+        .header h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3rem;
+            margin: 0.5rem 0;
+            color: #f39c12;
+            animation: bounceIn 2s;
+            cursor: pointer;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            animation: fadeIn 2s;
+            cursor: pointer;
+        }
+
+        .content {
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            animation: fadeIn 1.5s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content h2 {
+            border-bottom: 2px solid #6e45e2;
+            padding-bottom: 0.5rem;
+            animation: slideIn 1s;
+            cursor: pointer;
+        }
+
+        .content p, .content ul {
+            line-height: 1.6;
+            animation: fadeInUp 1s;
+            cursor: pointer;
+        }
+
+        .content ul li {
+            cursor: pointer;
+        }
+
+        .projects, .resume, .contact {
+            display: none;
+        }
+        .contact {
+    text-align: center;
+}
+
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #6e45e2;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.contact-form:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #6e45e2;
+}
+
+.send-message-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6e45e2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.send-message-btn:hover {
+    background-color: #4d2c91;
+}
+
+.social-media-icons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.social-media-icons a {
+    margin-right: 10px;
+}
+
+.social-media-icons img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.social-media-icons img:hover {
+    transform: scale(1.1);
+}
+
+
+
+        .footer {
+    background-color: transparent; 
+    color: #e0e0e0;
+    text-align: left; 
+    position: fixed;
+    bottom: 0;
+    left: 0; 
+    width: auto; 
+    z-index: 1;
+    border: none;
+}
+
+
+
+        @keyframes slideInFromBottom {
+    0% { transform: translateY(100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.role {
+    animation: slideInFromBottom 1s ease forwards;
+}
+
+.datetime {
+    animation: fadeIn 1s forwards;
+}
+
+        
+
+.learning-list {
+    list-style-type: none; /* Remove default bullet points */
+    padding-left: 0; /* Remove default left padding */
+}
+
+.learning-list li {
+    position: relative;
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-100%); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 1; }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes clickAnimation {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .animated-click {
+            animation: clickAnimation 0.5s;
+        }
+
+        .datetime {
+            font-size: 1rem;
+            color: #e0e0e0;
+            animation: fadeIn 2s;
+        }
+
+        #background-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-color: #1b1b1b;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="background-canvas"></canvas>
+    <nav class="nav">
+        <a href="#home" onclick="showSection('home')">Home</a>
+        <a href="#about" onclick="showSection('about')">About Me</a>
+        <a href="#projects" onclick="showSection('projects')">Projects</a>
+        <a href="#resume" onclick="showSection('resume')">Resume</a>
+        <a href="#contact" onclick="showSection('contact')">Contact</a>
+    </nav>
+    <header class="header" style="padding-top: 20vh;">
+        <h1 onclick="animateClick(this)">Hey 👋🏻, I'm Shreyansh Bhandari</h1>
+        <p onclick="animateClick(this)" class="role">Developer & AI/ML Engineer</p>
+        <p class="datetime" id="datetime" style="margin-top: 1rem;"></p>
+    </header>
+    
+    
+    <section id="home" class="content home">
+    </section>
+    
+    <section id="about" class="content about">
+        <h2 onclick="animateClick(this)">About Me</h2>
+        <p onclick="animateClick(this)">I am a Bachelor of Technology (B.Tech) student majoring in Artificial Intelligence and Data Science. With a keen interest in the field of AI and ML, I am passionate about learning and exploring the intricacies of these cutting-edge technologies. Currently, I am diving deep into studying various machine learning algorithms and their applications, honing my skills in algorithm development and model building. My goal is to leverage AI and ML to solve real-world problems and contribute to the advancement of technology.</p>
+    
+        <h3 style="font-size: 24px;">What I'm Currently Learning 📚</h3>
+        <ul class="learning-list">
+            <li style="font-size: 18px;" onclick="animateClick(this)">Machine Learning</li>
+            <li style="font-size: 18px;" onclick="animateClick(this)">Generative AI</li>
+            <li style="font-size: 18px;" onclick="animateClick(this)">Deep Learning and Neural Networks</li>
+            <li style="font-size: 18px;" onclick="animateClick(this)">Natural Language Processing (NLP)</li>
+        </ul>
+    
+        <h3 style="font-size: 24px; margin-top: 20px;">Skills ⚡️</h3>
+        <div class="skills-container">
+            <div class="skill-box">
+                <h4>Programming Languages</h4>
+                <ul>
+                    <li>C</li>
+                    <li>C++</li>
+                    <li>Python (Advanced)</li>
+                </ul>
+            </div>
+            <div class="skill-box">
+                <h4>Web Development</h4>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+            </div>
+            <div class="skill-box">
+                <h4>ML Libraries</h4>
+                <ul>
+                    <li>Pandas</li>
+                    <li>Numpy</li>
+                    <li>Matplotlib</li>
+                    <li>Scikit-Learn</li>
+                    <li>Keras</li>
+                </ul>
+            </div>
+            <div class="skill-box">
+                <h4>Additional Skills</h4>
+                <ul>
+                    <li>GitHub</li>
+                    <li>Canva</li>
+                    <li>Data Science</li>
+                    <li>IOT (Basics)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    
+    <section id="projects" class="content projects">
+        <h2 onclick="animateClick(this)">Projects</h2>
+        <div class="project-box">
+            <h3>Prediction of Disease Based on Patient Data 💭</h3>
+            <p>The inspiration behind this project stemmed from a desire to explore how machine learning can assist healthcare professionals in identifying individuals at risk of developing certain diseases.</p>
+            <a href="https://github.com/ShreyanshBhandari/prediction-of-disease" target="_blank">GitHub Repository</a>
+        </div>
+        <div class="project-box">
+            <h3>Face Detection 💭</h3>
+            <p>Face Detection with Python and OpenCV</p>
+            <a href="https://github.com/ShreyanshBhandari/Facial-Recgnisation/tree/main" target="_blank">GitHub Repository</a>
+        </div>
+        <div class="project-box">
+            <h3>Detecting Rainfall in India 💭</h3>
+            <p>A model capable of predicting rainfall based on historical weather data.</p>
+            <a href="https://github.com/ShreyanshBhandari/Rainfall_prediction" target="_blank">GitHub Repository</a>
+        </div>
+        <div class="more-projects">
+            <h3>More Projects 💭</h3>
+            <a href="https://github.com/ShreyanshBhandari" target="_blank">GitHub Profile</a>
+        </div>
+    </section>
+    
+    
+    <section id="resume" class="content resume">
+        <h2 onclick="animateClick(this)">Resume</h2>
+        <p onclick="animateClick(this)">You can view my resume  <a href="https://drive.google.com/file/d/1SEhQ8gk0YJE5cM1Tf_JgIwP3p1Pr2xl1/view" target="_blank" style="font-size: 40px;">here</a>.</p>
+    </section>
+    
+    
+    <section id="contact" class="content contact">
+        <h2 onclick="animateClick(this)">Get in Touch</h2>
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="send-message-btn">
+                <img src="https://th.bing.com/th/id/OIP.jrR3zANN8t6f6M32XL3CigAAAA?w=174&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Send Message" style="width: 20px; height: 20px;">
+                Send Message
+            </button>
+        </form>
+        <div class="social-media-icons">
+            <a href="https://www.linkedin.com/in/shreyansh-bhandari-jain-a44777238/" target="_blank"><img src="https://th.bing.com/th?q=LinkedIn+Logo+Black+Jpg&w=120&h=120&c=1&rs=1&qlt=90&cb=1&dpr=1.3&pid=InlineBlock&mkt=en-IN&cc=IN&setlang=en&adlt=moderate&t=1&mw=247" alt="LinkedIn" style="width: 30px; height: 30px;"></a>
+            <a href="https://www.instagram.com/shreyansh_jain13/" target="_blank"><img src="https://th.bing.com/th/id/OIP.fyl_qWNIExkoAybAbjmzIAHaHa?w=185&h=185&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Instagram" style="width: 30px; height: 30px;"></a>
+            <a href="https://github.com/ShreyanshBhandari" target="_blank"><img src="https://th.bing.com/th/id/OIP.PJoXmwv3lYJ2f7Pr1vtfkQHaEK?w=313&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="GitHub" style="width: 30px; height: 30px;"></a>
+        </div>
+    </section>
+    
+    
+    
+    <footer class="footer">
+        <p class="copyright">© 2024 Shreyansh All rights reserved.</p>
+    </footer>
+    
+    <script>
+        function showSection(section) {
+            document.querySelectorAll('.content').forEach(function(content) {
+                content.style.display = 'none';
+            });
+            if (section !== 'home') {
+                document.querySelector('.header').style.display = 'none';
+            } else {
+                document.querySelector('.header').style.display = 'block';
+            }
+
+            document.querySelector('.' + section).style.display = 'block';
+        }
+
+        function updateDateTime() {
+    const now = new Date();
+    const options = { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+    const dateTimeString = now.toLocaleString('en-US', options);
+    document.getElementById('datetime').textContent = dateTimeString;
+}
+
+
+        function updateDateTime() {
+            const now = new Date();
+            const dateTimeString = now.toLocaleString();
+            document.getElementById('datetime').textContent = dateTimeString;
+        }
+
+        showSection('home'); // Show home section by default
+        updateDateTime();
+        setInterval(updateDateTime, 1000); // Update date and time every second
+
+        // Background animation
+        const canvas = document.getElementById('background-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height, particles;
+
+        function init() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            particles = [];
+
+            for (let i = 0; i < 100; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = Math.random() * 2 - 1;
+                this.vy = Math.random() * 2 - 1;
+                this.radius = Math.random() * 1.5 + 0.5;
+            }
+
+            move() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > width) {
+                    this.vx *= -1;
+                }
+
+                if (this.y < 0 || this.y > height) {
+                    this.vy *= -1;
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = '#6e45e2';
+                ctx.fill();
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            particles.forEach(particle => {
+                particle.move();
+                particle.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', function() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            init();
+        });
+
+        init();
+        animate();
+    </script>
+</body>
+</html>
+
